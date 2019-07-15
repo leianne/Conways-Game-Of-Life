@@ -3,7 +3,7 @@ import Cell from './Cell';
 
 class Grid extends Component {
     render() {
-        const width = this.props.columns * 14;
+        const width = this.props.columns * 13;
         let grid = [];
         let cellClass = "";
 
@@ -13,11 +13,12 @@ class Grid extends Component {
                 cellClass = this.props.gridFull[i][j] ? "on" : "off";
                 grid.push(
                     <Cell
-                        cellClass = {cellClass};
+                        cellClass = {cellClass}
                         key={cellID}
                         row={i}
                         column={j}
                         cellID={cellID}
+                        selectCell={this.props.selectCell}
                     />
                 )
             }
