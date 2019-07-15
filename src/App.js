@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Grid from './components/Grid';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  constructor() {
+    super();
+    this.speed = 200;
+    this.rows =  50;
+    this.columns = 50; 
+    this.state = {
+      gridFull: Array(this.rows).fill(Array(this.columns).fill(false))
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+          <Grid rows={this.rows} columns={this.columns} gridFull={this.state.gridFull}/>
+      </div>
+    );
+  }
 }
 
 export default App;
